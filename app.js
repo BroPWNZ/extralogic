@@ -15,10 +15,9 @@ server.addMethod("createForm", ({form}) => forms.create(form));
 server.addMethod("getByFormId", ({id, answer}) => answers.getByFormId(id, answer));
 server.addMethod("saveAnswer", ({answer}) => answers.saveAnswer(answer));
 
-const keys = require('./config/keys')
 const app = express()
 
-mongoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log('MongoDB connected.'))
   .catch(error => console.log(error))
 
