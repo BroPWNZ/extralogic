@@ -6,7 +6,6 @@ module.exports.create = async function (form) {
             description: form.description,
             questions: form.questions
         }).save()
-    console.log(form)
     return form
 }
 module.exports.getAll = async function (forms) {
